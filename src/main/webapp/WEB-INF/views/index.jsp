@@ -54,7 +54,7 @@
                             <li>캠프 정보</li>
                             <li>웹서비스 구축 캠프</li>
                         </ul>
-                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">캠프 관리하기</button>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-primary" onclick="location.href='/camp'">캠프 관리하기</button>
                     </div>
                 </div>
             </div>

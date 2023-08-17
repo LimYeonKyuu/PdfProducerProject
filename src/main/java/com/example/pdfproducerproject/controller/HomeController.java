@@ -14,10 +14,8 @@ public class HomeController {
         return "index";
     }
 
-    @PostMapping("/form")
-    public String form(@RequestParam String name, Model model) {
-        model.addAttribute("name", name);
-
-        return "index";
+    @GetMapping("/camp")
+    public String camp() {
+        return "camp";
     }
 }
