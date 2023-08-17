@@ -14,8 +14,7 @@
     <%--                 header                    --%>
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-            <span class="fs-4">Pdf Producer</span>
+            Pdf Producer
         </a>
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
@@ -26,34 +25,70 @@
         </ul>
     </header>
     <%--                 header                    --%>
-        <div class="card mb-4 rounded-3 shadow-sm" style="width: 300px">
-            <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">A캠프</h4>
+        <div class="row row-cols-lg-3 row-cols-md-2">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm" style="width: 300px">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">A캠프</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>캠프 기간: 2023.08.21 - 2023.09.20</li>
+                            <li>인원: 23명</li>
+                            <li>캠프 정보</li>
+                            <li>웹서비스 구축 캠프</li>
+                        </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">캠프 관리하기</button>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <h1 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/mo</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                    <li>캠프 기간: 2023.08.21 - 2023.09.20</li>
-                    <li>인원: 23명</li>
-                    <li>캠프 정보</li>
-                    <li>웹서비스 구축 캠프</li>
-                </ul>
-                <button type="button" class="w-100 btn btn-lg btn-outline-primary">캠프 관리하기</button>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm" style="width: 300px">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">A캠프</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>캠프 기간: 2023.08.21 - 2023.09.20</li>
+                            <li>인원: 23명</li>
+                            <li>캠프 정보</li>
+                            <li>웹서비스 구축 캠프</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">캠프 관리하기</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="card mb-4 rounded-3 shadow-sm" style="width: 300px">
-            <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">A캠프</h4>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm" style="width: 300px">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">A캠프</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>캠프 기간: 2023.08.21 - 2023.09.20</li>
+                            <li>인원: 23명</li>
+                            <li>캠프 정보</li>
+                            <li>웹서비스 구축 캠프</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">캠프 관리하기</button>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <h1 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/mo</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                    <li>캠프 기간: 2023.08.21 - 2023.09.20</li>
-                    <li>인원: 23명</li>
-                    <li>캠프 정보</li>
-                    <li>웹서비스 구축 캠프</li>
-                </ul>
-                <button type="button" class="w-100 btn btn-lg btn-outline-primary">캠프 관리하기</button>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm" style="width: 300px">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">A캠프</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>캠프 기간: 2023.08.21 - 2023.09.20</li>
+                            <li>인원: 23명</li>
+                            <li>캠프 정보</li>
+                            <li>웹서비스 구축 캠프</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">캠프 관리하기</button>
+                    </div>
+                </div>
             </div>
         </div>
 </div>
