@@ -18,4 +18,9 @@ public class HomeController {
     public String camp() {
         return "camp";
     }
+
+    @GetMapping("/addCamp")
+    public String addCamp() {
+        return "addCamp";
+    }
 }
