@@ -80,7 +80,7 @@
                 <div>
                     <label for="startDate" class="label">캠프 기간</label>
                 </div>
-                <div class="d-flex"><input type="text" id="startDate" placeholder="시작 날짜" required autofocus value><h6 style="margin: 0; padding: 0;"> ~ </h6><input type="text" id="endDate" placeholder="끝 날짜" required autofocus value></div>
+                <div class="d-flex"><input type="text" id="startDate" placeholder="시작 날짜" required autofocus value><h6 style="margin: 2px; padding: 2px;"> ~ </h6><input type="text" id="endDate" placeholder="끝 날짜" required autofocus value></div>
                 <br>
                 <div>
                     <label for="content" class="label">캠프 설명</label>

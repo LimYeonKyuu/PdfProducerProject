@@ -23,4 +23,8 @@ public class HomeController {
     public String addCamp() {
         return "addCamp";
     }
+    @PostMapping("/addStudentOk")
+    public String addStudentOk() {
+        return "redirect:/camp";
+    }
 }
