@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="com.example.pdfproducerproject.dao.CampDAO, com.example.pdfproducerproject.vo.CampVO,java.util.*" %>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
@@ -26,9 +27,10 @@
     </ul>
   </header>
   <%--                 header                    --%>
-    <h2>A캠프</h2>
-    <h6>캠프 기간: 2023.08.21 - 2023.09.20</h6>
-    <h6>웹서비스 구축 캠프</h6>
+    <div class="d-flex justify-content-end" style="margin-bottom: -30px"><button type="button" class="btn btn-outline-warning" style="margin-right: 5px">캠프 정보 수정</button><button type="button" class="btn btn-outline-danger">캠프 삭제</button></div>
+    <h2>${c.getName()}</h2>
+    <h6>캠프 기간: ${c.getStartDate()} - ${c.getEndDate()}</h6>
+    <h6>${c.getContent()}</h6>
     <br>
     <br>
     <br>
@@ -100,7 +102,7 @@
           <th scope="col">이름</th>
           <th scope="col">학번</th>
           <th scope="col">학부</th>
-          <th scope="col" style="text-align:right">총원 23명</th>
+          <th scope="col" style="text-align:right">총원 ${c.getStudent()}명</th>
         </tr>
         </thead>
         <tbody>
@@ -114,7 +116,6 @@
         </tbody>
       </table>
       <div class="d-flex justify-content-center"><button type="button" class="btn btn-outline-success">수료증 다운로드</button></div>
-      <div class="d-flex justify-content-end"><button type="button" class="btn btn-outline-warning" style="margin-right: 5px">캠프 정보 수정</button><button type="button" class="btn btn-outline-danger">캠프 삭제</button></div>
     </div>
 </div>
 </body>

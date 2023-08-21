@@ -12,5 +12,5 @@ public class CampVO  {
     private String startDate;
     private String endDate;
     private String content;
-    private int studentNum;
+    private int student;
 }

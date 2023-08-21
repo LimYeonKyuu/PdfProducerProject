@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="com.example.pdfproducerproject.dao.CampDAO, com.example.pdfproducerproject.vo.CampVO,java.util.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
@@ -25,24 +27,27 @@
         </ul>
     </header>
     <%--                 header                    --%>
+
         <div class="row row-cols-lg-3 row-cols-md-2">
-            <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm" style="width: 300px">
-                    <div class="card-header py-3">
-                        <h3 class="my-0 fw-normal">A캠프</h3>
-                        <div class="d-flex justify-content-end" style="margin-top: -40px"><button type="button" class="btn btn-sm btn-outline-warning" style="margin-right: 5px">수정</button><button type="button" class="btn btn-sm btn-outline-danger">삭제</button></div>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>캠프 기간: 2023.08.21 - 2023.09.20</li>
-                            <li>인원: 23명</li>
-                            <li>캠프 정보</li>
-                            <li>웹서비스 구축 캠프</li>
-                        </ul>
-                        <button type="button" class="w-100 btn btn-lg btn-outline-primary" onclick="location.href='/camp'">캠프 관리하기</button>
+            <c:forEach items='${list}' var="c">
+                <div class="col" style="margin-top: 20px">
+                    <div class="card mb-4 rounded-3 shadow-sm" style="width: 300px">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">${fn:substring(c.getName(), 0, 8)}${fn:length(c.getName()) > 8 ? '...' : ''}</h4>
+                            <div class="d-flex justify-content-end" style="margin-top: -30px"><button type="button" class="btn btn-sm btn-outline-warning" style="margin-right: 5px">수정</button><button type="button" class="btn btn-sm btn-outline-danger">삭제</button></div>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>캠프 기간: ${c.getStartDate()} - ${c.getEndDate()}</li>
+                                <li>인원: ${c.getStudent()}</li>
+                                <li>캠프 정보</li>
+                                <li>${c.getContent()}</li>
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary" onclick="location.href='/camp/${c.getCampKey()}'">캠프 관리하기</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </c:forEach>
         </div>
 </div>
 </body>
