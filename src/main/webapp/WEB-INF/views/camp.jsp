@@ -39,14 +39,14 @@
     <h4 class="text-left" style="margin: 0; padding: 0;">학생 정보</h4>
     <div class="d-flex justify-content-end" style="margin-top: -30px;">
       <button type="button" class="btn btn-outline-danger" style="margin-right: 10px;">선택 삭제</button>
-      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">학생 추가</button>
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addStudentModal">학생 추가</button>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addStudentModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">학생 추가</h1>
+            <h1 class="modal-title fs-5" id="addStudentModalLabel">학생 추가</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">

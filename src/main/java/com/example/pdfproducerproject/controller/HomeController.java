@@ -33,6 +33,7 @@ public class HomeController {
     public String addCamp() {
         return "addCamp";
     }
+
     @PostMapping("/addStudentOk")
     public String addStudentOk() {
         return "redirect:/camp";
@@ -40,11 +41,19 @@ public class HomeController {
 
     @PostMapping("/addCampOk")
     public String addCampOk(CampVO vo) {
-        System.out.print(vo.getName());
-        System.out.print(vo.getStartDate());
-        System.out.print(vo.getEndDate());
-        System.out.print(vo.getContent());
         campService.insertCamp(vo);
+        return "redirect:/";
+    }
+
+    @GetMapping("/deleteCampOk/{campKey}")
+    public String deleteCampOk(@PathVariable("campKey")int campKey){
+        campService.deleteCamp(campKey);
+        return "redirect:/";
+    }
+
+    @PostMapping("/updateCampOk")
+    public String updateCampOk(CampVO vo) {
+        campService.updateCamp(vo);
         return "redirect:/";
     }
 }

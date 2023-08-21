@@ -8,49 +8,6 @@
     <title>Pdf Producer</title>
     <link rel="stylesheet" type="text/css" href="${context}/static/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $.datepicker.setDefaults($.datepicker.regional['ko']);
-            $( "#startDate" ).datepicker({
-                changeMonth: true,
-                changeYear: true,
-                nextText: '다음 달',
-                prevText: '이전 달',
-                dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-                monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-                monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-                dateFormat: "yy.mm.dd",
-                onClose: function( selectedDate ) {
-                    //시작일(startDate) datepicker가 닫힐때
-                    //종료일(endDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
-                    $("#endDate").datepicker( "option", "minDate", selectedDate );
-                }
-
-            });
-            $( "#endDate" ).datepicker({
-                changeMonth: true,
-                changeYear: true,
-                nextText: '다음 달',
-                prevText: '이전 달',
-                dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-                monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-                monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-                dateFormat: "yy.mm.dd",
-                onClose: function( selectedDate ) {
-                    // 종료일(endDate) datepicker가 닫힐때
-                    // 시작일(startDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 시작일로 지정
-                    $("#startDate").datepicker( "option", "maxDate", selectedDate );
-                }
-
-            });
-        });
-    </script>
-
 </head>
 <body>
 <div class="container">
@@ -74,19 +31,19 @@
                     <label for="name" class="label">캠프 이름</label>
                 </div>
                 <div>
-                    <input id="name" name="name" type="text" class="input" style="width: 100%" placeholder="캠프 이름을 입력해주세요" required autofocus value>
+                    <input id="name" name="name" type="text" class="input" style="width: 100%" maxlength="20" placeholder="캠프 이름을 입력해주세요" required autofocus value>
                 </div>
                 <br>
                 <div>
                     <label for="startDate" class="label">캠프 기간</label>
                 </div>
-                <div class="d-flex"><input type="text" id="startDate" name="startDate" placeholder="시작 날짜" required autofocus value><h6 style="margin: 2px; padding: 2px;"> ~ </h6><input type="text" name="endDate" id="endDate" placeholder="끝 날짜" required autofocus value></div>
+                <div class="d-flex"><input type="date" id="startDate" name="startDate" placeholder="시작 날짜" required autofocus value><h6 style="margin: 2px; padding: 2px;"> ~ </h6><input type="date" name="endDate" id="endDate" placeholder="끝 날짜" required autofocus value></div>
                 <br>
                 <div>
                     <label for="content" class="label">캠프 설명</label>
                 </div>
                 <div>
-                    <textarea id="content" name="content" class="input" rows="15" style="width: 100%" placeholder="캠프에 관해 간단하게 적어주세요." required autofocus value></textarea>
+                    <textarea id="content" name="content" class="input" rows="15" style="width: 100%" maxlength="300" placeholder="캠프에 관해 간단하게 적어주세요." required autofocus value></textarea>
                     <div id="preview"></div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 package com.example.pdfproducerproject.vo;
 
-import java.util.Date;
+import java.sql.Date;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,8 +9,8 @@ import lombok.Setter;
 public class CampVO  {
     private int campKey;
     private String name;
-    private String startDate;
-    private String endDate;
+    private Date startDate;
+    private Date endDate;
     private String content;
     private int student;
 }
