@@ -68,7 +68,7 @@
         </ul>
     </header>
     <%--                 header                    --%>
-        <form class="needs-validation" action="addCampOk" method="POST" accept-charset="UTF-8">
+        <form class="needs-validation" action="/addCampOk" method="POST" accept-charset="UTF-8">
             <div class="wirte-grid" style="max-width: 580px;">
                 <div>
                     <label for="name" class="label">캠프 이름</label>
@@ -80,7 +80,7 @@
                 <div>
                     <label for="startDate" class="label">캠프 기간</label>
                 </div>
-                <div class="d-flex"><input type="text" id="startDate" placeholder="시작 날짜" required autofocus value><h6 style="margin: 2px; padding: 2px;"> ~ </h6><input type="text" id="endDate" placeholder="끝 날짜" required autofocus value></div>
+                <div class="d-flex"><input type="text" id="startDate" name="startDate" placeholder="시작 날짜" required autofocus value><h6 style="margin: 2px; padding: 2px;"> ~ </h6><input type="text" name="endDate" id="endDate" placeholder="끝 날짜" required autofocus value></div>
                 <br>
                 <div>
                     <label for="content" class="label">캠프 설명</label>

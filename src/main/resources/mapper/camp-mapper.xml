@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Camp">
+    <insert id="insertCamp">
+        insert into Camp (NAME, STARTDATE, ENDDATE, CONTENT)
+        values
+            (#{name},#{startDate},#{endDate},#{content})
+    </insert>
+    <update id="updateCamp">
+        update Camp
+        set NAME= #{name},STARTDATE = #{startDate},ENDDATE = #{endDate}, CONTENT = #{content}
+        where CAMPKEY = #{campKey}
+    </update>
+    <delete id="deleteCamp">
+        delete from Camp where CAMPKEY = #{campKey}
+    </delete>
+    <select id="getCamp" resultType="camp">
+        select * from Camp where CAMPKEY = #{campKey}
+    </select>
+    <select id="getCampList" resultType="camp">
+        select * from Camp order by CAMPKEY desc
+    </select>
+</mapper>
