@@ -30,9 +30,9 @@
     <%--                 header                    --%>
 
         <div class="row row-cols-lg-3 row-cols-md-2">
-            <c:forEach items='${list}' var="c">
+            <c:forEach items='${campList}' var="c">
                 <div class="col" style="margin-top: 20px">
-                    <div class="card mb-4 rounded-3 shadow-sm" style="width: 300px">
+                    <div class="card mb-4 rounded-3 shadow-sm" style="width: 330px">
                         <div class="card-header py-3">
                             <h4 class="my-0 fw-normal">${fn:substring(c.getName(), 0, 8)}${fn:length(c.getName()) > 8 ? '...' : ''}</h4>
                             <div class="d-flex justify-content-end" style="margin-top: -30px"><button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updateCampModal-${c.getCampKey()}" style="margin-right: 5px">수정</button><button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteCampModal-${c.getCampKey()}">삭제</button></div>
@@ -40,7 +40,7 @@
                         <div class="card-body">
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li>캠프 기간: ${c.getStartDate()} ~ ${c.getEndDate()}</li>
-                                <li>인원: ${c.getStudent()}명</li>
+                                <li>인원: ${c.getStudents()}명</li>
                                 <li>캠프 정보</li>
                                 <li style="height: 150px">${c.getContent()}</li>
                             </ul>
@@ -60,7 +60,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                                <button type="button" class="btn btn-danger" onclick="location.href='deleteCampOk/${c.getCampKey()}'">삭제</button>
+                                <button type="button" class="btn btn-danger" onclick="location.href='/deleteCampOk/${c.getCampKey()}'">삭제</button>
                             </div>
                         </div>
                     </div>
@@ -76,20 +76,20 @@
                                 <form id="updateCamp" action="/updateCampOk" method="post">
                                     <input type="hidden" name="campKey" value="${c.getCampKey()}">
                                     <div class="mb-3">
-                                        <label for="name" class="form-label">이름</label>
-                                        <input type="text" class="form-control" id="name" name="name" maxlength="20" value="${c.getName()}">
+                                        <label for="updateCampName-${c.getCampKey()}" class="form-label">이름</label>
+                                        <input type="text" class="form-control" id="updateCampName-${c.getCampKey()}" name="name" maxlength="20" value="${c.getName()}">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="startDate" class="form-label">시작 날짜</label>
-                                        <input type="date" class="form-control" id="startDate" name="startDate" value="${c.getStartDate()}">
+                                        <label for="updateCampStartDate-${c.getCampKey()}" class="form-label">시작 날짜</label>
+                                        <input type="date" class="form-control" id="updateCampStartDate-${c.getCampKey()}" name="startDate" value="${c.getStartDate()}">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="endDate" class="form-label">종료 날짜</label>
-                                        <input type="date" class="form-control" id="endDate" name="endDate" value="${c.getEndDate()}">
+                                        <label for="updateCampEndDate-${c.getCampKey()}" class="form-label">종료 날짜</label>
+                                        <input type="date" class="form-control" id="updateCampEndDate-${c.getCampKey()}" name="endDate" value="${c.getEndDate()}">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="content" class="form-label">캠프 정보</label>
-                                        <textarea class="form-control" id="content" name="content" maxlength="300">${c.getContent()}</textarea>
+                                        <label for="updateCampContent-${c.getCampKey()}" class="form-label">캠프 정보</label>
+                                        <textarea class="form-control" id="updateCampContent-${c.getCampKey()}" name="content" maxlength="300">${c.getContent()}</textarea>
                                     </div>
                                 </form>
                             </div>

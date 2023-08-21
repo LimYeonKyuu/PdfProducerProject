@@ -6,5 +6,6 @@
 <configuration>
     <typeAliases>
         <typeAlias alias="camp" type="com.example.pdfproducerproject.vo.CampVO" />
+        <typeAlias alias="student" type="com.example.pdfproducerproject.vo.StudentVO" />
     </typeAliases>
 </configuration>

@@ -19,9 +19,16 @@ public class CampServiceImpl implements CampService {
     }
 
     @Override
-    public int deleteCamp(int seq) {
-        return campDAO.deleteCamp(seq);
+    public int deleteCamp(int campKey) {
+        return campDAO.deleteCamp(campKey);
     }
+
+    @Override
+    public int studentUp(int campKey) {
+        return campDAO.studentUp(campKey);
+    }
+
+    public int studentDown(int campKey) {return campDAO.studentDown(campKey);}
 
     @Override
     public int updateCamp(CampVO vo) {

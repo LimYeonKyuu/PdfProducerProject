@@ -6,11 +6,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CampVO  {
+public class StudentVO  {
+    private int studentKey;
     private int campKey;
     private String name;
-    private Date startDate;
-    private Date endDate;
-    private String content;
-    private int students;
+    private String studentId;
+    private String department;
 }

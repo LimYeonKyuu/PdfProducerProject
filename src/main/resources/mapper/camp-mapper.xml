@@ -11,6 +11,16 @@
         set NAME= #{name},STARTDATE = #{startDate},ENDDATE = #{endDate}, CONTENT = #{content}
         where CAMPKEY = #{campKey}
     </update>
+    <update id="studentDown">
+        update Camp
+        set STUDENTS=STUDENTS-1
+        where CAMPKEY = #{campKey}
+    </update>
+    <update id="studentUp">
+        update Camp
+        set STUDENTS=STUDENTS+1
+        where CAMPKEY = #{campKey}
+    </update>
     <delete id="deleteCamp">
         delete from Camp where CAMPKEY = #{campKey}
     </delete>

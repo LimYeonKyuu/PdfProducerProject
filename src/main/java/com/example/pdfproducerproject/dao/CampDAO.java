@@ -1,9 +1,7 @@
 package com.example.pdfproducerproject.dao;
 
 import com.example.pdfproducerproject.vo.CampVO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSession;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,13 +15,22 @@ public class CampDAO {
     SqlSession sqlSession;
 
     public int insertCamp(CampVO vo) {
-        System.out.println("abc");
         int result = sqlSession.insert("Camp.insertCamp", vo);
         return result;
     }
 
     public int updateCamp(CampVO vo) {
         int result = sqlSession.update("Camp.updateCamp", vo);
+        return result;
+    }
+
+    public int studentUp(int campKey) {
+        int result = sqlSession.update("Camp.studentUp", campKey);
+        return result;
+    }
+
+    public int studentDown(int campKey) {
+        int result = sqlSession.update("Camp.studentDown", campKey);
         return result;
     }
 
