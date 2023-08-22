@@ -11,6 +11,14 @@
   <link rel="stylesheet" type="text/css" href="${context}/static/css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function openPdfPage(campKey,studentKey) {
+      // 새 창을 열기 위한 창 옵션 설정
+      var windowFeatures = 'width=800,height=600,scrollbars=yes,resizable=yes';
+      // 새 창 열기
+      window.open('/pdf/'+campKey+'/'+studentKey, '_blank', windowFeatures);
+    }
+  </script>
 </head>
 <body>
 <div class="container">
@@ -162,11 +170,11 @@
         <c:forEach items='${studentList}' var="s">
           <tbody>
           <tr style="font-size: 20px">
-            <td >#</td>
+            <td>#</td>
             <td>${s.getName()}</td>
             <td>${s.getStudentId()}</td>
             <td>${s.getDepartment()}</td>
-            <td class="d-flex justify-content-end"><button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updateStudentModal-${s.getStudentKey()}" style="margin-right: 5px">수정</button><button type="button" class="btn btn-outline-danger" onclick="location.href='/deleteStudentOk/${s.getCampKey()}/${s.getStudentKey()}'">삭제</button></td>
+            <td class="d-flex justify-content-end"><button type="button" class="btn btn-outline-success" style="margin-right: 5px" onclick="openPdfPage(${s.getCampKey()},${s.getStudentKey()})">수료증 다운로드</button><button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updateStudentModal-${s.getStudentKey()}" style="margin-right: 5px">수정</button><button type="button" class="btn btn-outline-danger" onclick="location.href='/deleteStudentOk/${s.getCampKey()}/${s.getStudentKey()}'">삭제</button></td>
           </tr>
           </tbody>
           <div class="modal fade" id="updateStudentModal-${s.getStudentKey()}" tabindex="-1" aria-hidden="true">

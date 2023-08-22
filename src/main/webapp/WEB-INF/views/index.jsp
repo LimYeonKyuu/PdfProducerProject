@@ -39,10 +39,10 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled mt-3 mb-4">
-                                <li>캠프 기간: ${c.getStartDate()} ~ ${c.getEndDate()}</li>
-                                <li>인원: ${c.getStudents()}명</li>
-                                <li>캠프 정보</li>
-                                <li style="height: 150px">${c.getContent()}</li>
+                                <li style="padding: 5px">캠프 기간: ${c.getStartDate()} ~ ${c.getEndDate()}</li>
+                                <li style="padding:5px">인원: ${c.getStudents()}명</li>
+                                <li style="padding:5px">캠프 정보</li>
+                                <li style="height: 150px; border: 1px solid #f0f0f0; padding: 5px">${c.getContent()}</li>
                             </ul>
                             <button type="button" class="w-100 btn btn-lg btn-outline-primary" onclick="location.href='/camp/${c.getCampKey()}'">캠프 관리하기</button>
                         </div>

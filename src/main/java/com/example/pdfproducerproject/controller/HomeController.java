@@ -82,5 +82,4 @@ public class HomeController {
         studentService.updateStudent(vo);
         return "redirect:/camp/"+vo.getCampKey();
     }
-
 }
