@@ -13,10 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     function openPdfPage(campKey,studentKey) {
-      // 새 창을 열기 위한 창 옵션 설정
-      var windowFeatures = 'width=800,height=600,scrollbars=yes,resizable=yes';
-      // 새 창 열기
-      window.open('/pdf/'+campKey+'/'+studentKey, '_blank', windowFeatures);
+      window.open('/pdf/'+campKey+'/'+studentKey, '_blank');
     }
   </script>
   <script>
@@ -38,6 +35,28 @@
         }
       } else {
         alert("삭제할 학생을 선택해주세요.");
+      }
+    }
+  </script>
+  <script>
+    function pdfSelectedStudents() {
+      var selectedStudents = []; // 선택된 학생 키를 저장할 배열
+      var checkboxes = document.getElementsByClassName("student-checkbox");
+
+      for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+          selectedStudents.push(checkboxes[i].value);
+        }
+      }
+
+      if (selectedStudents.length > 0) {
+        var confirmation = confirm("선택한 학생들의 수료증을 출력하시겠습니까?");
+        if (confirmation) {
+          var url = "/pdfSelectedStudents/${c.getCampKey()}?studentKeys=" + selectedStudents.join(",");
+          window.open(url,'_blank');
+        }
+      } else {
+        alert("수료증을 다운로드 할 학생을 선택해주세요.");
       }
     }
   </script>
@@ -65,7 +84,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ${c.getName()}를 삭제하시겠습니까?
+            ${c.getName()}를 삭제하시겠습니까? (학생들의 데이터도 모두 삭제됩니다)
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
@@ -123,6 +142,7 @@
     <%--                 학생 리스트                    --%>
     <h4 class="text-left" style="margin: 0; padding: 0;">학생 정보</h4>
     <div class="d-flex justify-content-end" style="margin-top: -30px;">
+      <button type="button" class="btn btn-outline-success" style="margin-right: 10px;"onclick="pdfSelectedStudents()">선택 수료증 다운로드</button>
       <button type="button" class="btn btn-outline-danger" style="margin-right: 10px;" onclick="deleteSelectedStudents()">선택 삭제</button>
       <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addStudentModal">학생 추가</button>
     </div>
@@ -251,7 +271,6 @@
           </div>
         </c:forEach>
       </table>
-      <div class="d-flex justify-content-center"><button type="button" class="btn btn-outline-success">수료증 다운로드</button></div>
     </div>
 </div>
 <script>
