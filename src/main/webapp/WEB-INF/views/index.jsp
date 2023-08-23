@@ -32,15 +32,17 @@
         <div class="row row-cols-lg-3 row-cols-md-2">
             <c:forEach items='${campList}' var="c">
                 <div class="col" style="margin-top: 20px">
-                    <div class="card mb-4 rounded-3 shadow-sm" style="width: 330px">
+                    <div class="card mb-4 rounded-3 shadow-sm" style="width: 350px">
                         <div class="card-header py-3">
                             <h4 class="my-0 fw-normal">${fn:substring(c.getName(), 0, 8)}${fn:length(c.getName()) > 8 ? '...' : ''}</h4>
                             <div class="d-flex justify-content-end" style="margin-top: -30px"><button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updateCampModal-${c.getCampKey()}" style="margin-right: 5px">수정</button><button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteCampModal-${c.getCampKey()}">삭제</button></div>
                         </div>
                         <div class="card-body">
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li style="padding: 5px">캠프 기간: ${c.getStartDate()} ~ ${c.getEndDate()}</li>
-                                <li style="padding:5px">인원: ${c.getStudents()}명</li>
+                            <ul class="list-unstyled mt-3 mb-4" style="padding:10px; border: 1px solid #f0f0f0;">
+                                <li style="padding: 5px">캠프 기간</li>
+                                <li style="border: 1px solid #f0f0f0; padding: 5px">${c.getFormatStartDate()} ~ ${c.getFormatEndDate()}</li>
+                                <li style="padding:5px">인원</li>
+                                <li style="border: 1px solid #f0f0f0; padding:5px">${c.getStudents()}명</li>
                                 <li style="padding:5px">캠프 정보</li>
                                 <li style="height: 150px; border: 1px solid #f0f0f0; padding: 5px">${c.getContent()}</li>
                             </ul>

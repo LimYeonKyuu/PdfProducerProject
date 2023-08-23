@@ -90,7 +90,7 @@
       </div>
     </div>
     <h2>${c.getName()}</h2>
-    <h6>캠프 기간: ${c.getStartDate()} ~ ${c.getEndDate()}</h6>
+    <h6>캠프 기간: ${c.getFormatStartDate()} ~ ${c.getFormatEndDate()}</h6>
     <h6>${c.getContent()}</h6>
     <br>
     <br>
