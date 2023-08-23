@@ -11,6 +11,7 @@
 </head>
 <body>
 <div class="container">
+
     <%--                 header                    --%>
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
@@ -19,12 +20,10 @@
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="/" class="nav-link" aria-current="page">캠프 목록</a></li>
             <li class="nav-item"><a href="/addCamp" class="nav-link active">캠프 추가</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
         </ul>
     </header>
-    <%--                 header                    --%>
+
+    <%--                 캠프 추가 폼                    --%>
         <form class="needs-validation" action="/addCampOk" method="POST" accept-charset="UTF-8">
             <div class="wirte-grid" style="max-width: 580px;">
                 <div>

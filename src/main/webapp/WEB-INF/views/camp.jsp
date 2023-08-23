@@ -30,12 +30,10 @@
     <ul class="nav nav-pills">
       <li class="nav-item"><a href="/" class="nav-link" aria-current="page">캠프 목록</a></li>
       <li class="nav-item"><a href="/addCamp" class="nav-link">캠프 추가</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">About</a></li>
     </ul>
   </header>
-  <%--                 header                    --%>
+
+  <%--                 캠프 정보 수정 및 삭제                    --%>
     <div class="d-flex justify-content-end" style="margin-bottom: -30px"><button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updateCampModal" style="margin-right: 5px">캠프 정보 수정</button><button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteCampModal">캠프 삭제</button></div>
     <div class="modal fade" id="deleteCampModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog">
@@ -61,6 +59,8 @@
             <h1 class="modal-title fs-5" id="updateCampModalLabel">캠프 정보 수정</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+
+          <%--                 캠프 정보 수정 모달 창                   --%>
           <div class="modal-body">
             <form id="updateCamp" action="/updateCampOkInPage" method="post">
               <input type="hidden" name="campKey" value="${c.getCampKey()}">
@@ -89,6 +89,7 @@
         </div>
       </div>
     </div>
+    <%--                 캠프 정보                    --%>
     <h2>${c.getName()}</h2>
     <h6>캠프 기간: ${c.getFormatStartDate()} ~ ${c.getFormatEndDate()}</h6>
     <h6>${c.getContent()}</h6>
@@ -97,12 +98,13 @@
     <br>
     <br>
     <br>
+    <%--                 학생 리스트                    --%>
     <h4 class="text-left" style="margin: 0; padding: 0;">학생 정보</h4>
     <div class="d-flex justify-content-end" style="margin-top: -30px;">
       <button type="button" class="btn btn-outline-danger" style="margin-right: 10px;">선택 삭제</button>
       <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addStudentModal">학생 추가</button>
     </div>
-    <!-- Modal -->
+    <%--                 학생 추가 모달                    --%>
     <div class="modal fade" id="addStudentModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -156,6 +158,7 @@
       </div>
     </div>
 
+    <%--                 학생 리스트 바디                    --%>
     <div class="table-responsive small">
       <table class="table table-striped table-sm">
         <thead>
@@ -177,6 +180,8 @@
             <td class="d-flex justify-content-end"><button type="button" class="btn btn-outline-success" style="margin-right: 5px" onclick="openPdfPage(${s.getCampKey()},${s.getStudentKey()})">수료증 다운로드</button><button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updateStudentModal-${s.getStudentKey()}" style="margin-right: 5px">수정</button><button type="button" class="btn btn-outline-danger" onclick="location.href='/deleteStudentOk/${s.getCampKey()}/${s.getStudentKey()}'">삭제</button></td>
           </tr>
           </tbody>
+
+          <%--                 학생 수정 모달                    --%>
           <div class="modal fade" id="updateStudentModal-${s.getStudentKey()}" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">

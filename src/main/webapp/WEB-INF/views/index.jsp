@@ -22,15 +22,12 @@
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">캠프 목록</a></li>
             <li class="nav-item"><a href="/addCamp" class="nav-link">캠프 추가</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
         </ul>
     </header>
-    <%--                 header                    --%>
-
+        <%--                 body                   --%>
         <div class="row row-cols-lg-3 row-cols-md-2">
             <c:forEach items='${campList}' var="c">
+                <%--                 캠프 정보 카드                   --%>
                 <div class="col" style="margin-top: 20px">
                     <div class="card mb-4 rounded-3 shadow-sm" style="width: 350px">
                         <div class="card-header py-3">
@@ -50,6 +47,8 @@
                         </div>
                     </div>
                 </div>
+
+                <%--                 캠프 삭제 확인 모달                    --%>
                 <div class="modal fade" id="deleteCampModal-${c.getCampKey()}" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -58,7 +57,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                    ${c.getName()}를 삭제하시겠습니까?
+                                    ${c.getName()}를 삭제하시겠습니까?(학생들의 데이터도 모두 삭제됩니다)
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
@@ -67,6 +66,8 @@
                         </div>
                     </div>
                 </div>
+
+                <%--                 캠프 정보 수정 모달                    --%>
                 <div class="modal fade" id="updateCampModal-${c.getCampKey()}" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
