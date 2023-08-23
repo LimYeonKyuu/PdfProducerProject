@@ -19,6 +19,28 @@
       window.open('/pdf/'+campKey+'/'+studentKey, '_blank', windowFeatures);
     }
   </script>
+  <script>
+    function deleteSelectedStudents() {
+      var selectedStudents = []; // 선택된 학생 키를 저장할 배열
+      var checkboxes = document.getElementsByClassName("student-checkbox");
+
+      for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+          selectedStudents.push(checkboxes[i].value);
+        }
+      }
+
+      if (selectedStudents.length > 0) {
+        var confirmation = confirm("선택한 학생들을 삭제하시겠습니까?");
+        if (confirmation) {
+          var url = "/deleteSelectedStudents/${c.getCampKey()}?studentKeys=" + selectedStudents.join(",");
+          location.href = url; // URL로 이동하여 컨트롤러로 전송
+        }
+      } else {
+        alert("삭제할 학생을 선택해주세요.");
+      }
+    }
+  </script>
 </head>
 <body>
 <div class="container">
@@ -101,7 +123,7 @@
     <%--                 학생 리스트                    --%>
     <h4 class="text-left" style="margin: 0; padding: 0;">학생 정보</h4>
     <div class="d-flex justify-content-end" style="margin-top: -30px;">
-      <button type="button" class="btn btn-outline-danger" style="margin-right: 10px;">선택 삭제</button>
+      <button type="button" class="btn btn-outline-danger" style="margin-right: 10px;" onclick="deleteSelectedStudents()">선택 삭제</button>
       <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addStudentModal">학생 추가</button>
     </div>
     <%--                 학생 추가 모달                    --%>
@@ -163,7 +185,7 @@
       <table class="table table-striped table-sm">
         <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col"><input type="checkbox" id="selectAllStudents"></th>
           <th scope="col">이름</th>
           <th scope="col">학번</th>
           <th scope="col">학부</th>
@@ -173,7 +195,7 @@
         <c:forEach items='${studentList}' var="s">
           <tbody>
           <tr style="font-size: 20px">
-            <td>#</td>
+            <td><input type="checkbox" class="student-checkbox" value="${s.getStudentKey()}"></td>
             <td>${s.getName()}</td>
             <td>${s.getStudentId()}</td>
             <td>${s.getDepartment()}</td>
@@ -232,6 +254,23 @@
       <div class="d-flex justify-content-center"><button type="button" class="btn btn-outline-success">수료증 다운로드</button></div>
     </div>
 </div>
+<script>
+  // 전체 학생 선택 체크박스
+  var selectAllCheckbox = document.getElementById("selectAllStudents");
+  var studentCheckboxes = document.getElementsByClassName("student-checkbox");
+
+  selectAllCheckbox.addEventListener("change", function () {
+    if (selectAllCheckbox.checked) {
+      for (var i = 0; i < studentCheckboxes.length; i++) {
+        studentCheckboxes[i].checked = true;
+      }
+    } else {
+      for (var i = 0; i < studentCheckboxes.length; i++) {
+        studentCheckboxes[i].checked = false;
+      }
+    }
+  });
+</script>
 </body>
 </html>
 

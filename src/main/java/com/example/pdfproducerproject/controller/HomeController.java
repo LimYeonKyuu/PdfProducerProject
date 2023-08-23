@@ -10,6 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -81,5 +84,15 @@ public class HomeController {
     public String updateStudentOk(StudentVO vo) {
         studentService.updateStudent(vo);
         return "redirect:/camp/"+vo.getCampKey();
+    }
+
+    @GetMapping(value = "/deleteSelectedStudents/{campKey}")
+    public String deleteSelectedStudents(@RequestParam("studentKeys") List<Integer> studentKeys,@PathVariable("campKey")int campKey) {
+
+        for (Integer studentKey : studentKeys) {
+            studentService.deleteStudent(studentKey);
+            campService.studentDown(campKey);
+        }
+        return "redirect:/camp/"+campKey;
     }
 }
