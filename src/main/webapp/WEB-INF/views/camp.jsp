@@ -162,14 +162,14 @@
                   <label for="name" class="label">이름</label>
                 </div>
                 <div>
-                  <input id="name" name="name" type="text" class="input" style="width: 100%" placeholder="이름을 입력해주세요" required autofocus value>
+                  <input id="name" name="name" type="text" class="input" maxlength="15" style="width: 100%" placeholder="이름을 입력해주세요" required autofocus value>
                 </div>
                 <br>
                 <div>
                   <label for="studentId" class="label">학번</label>
                 </div>
                 <div>
-                  <input id="studentId" name="studentId" type="text" class="input" style="width: 100%" placeholder="학번을 입력해주세요" required autofocus value>
+                  <input id="studentId" name="studentId" type="text" class="input" maxlength="10" style="width: 100%" placeholder="학번을 입력해주세요" required autofocus value>
                 </div>
                 <br>
                 <div>
@@ -241,7 +241,7 @@
                     </div>
                     <div class="mb-3">
                       <label for="updateStudentId-${s.getStudentKey()}" class="form-label">학번</label>
-                      <input type="text" class="form-control" id="updateStudentId-${s.getStudentKey()}" name="studentId" maxlength="20" value="${s.getStudentId()}">
+                      <input type="text" class="form-control" id="updateStudentId-${s.getStudentKey()}" name="studentId" maxlength="10" value="${s.getStudentId()}">
                     </div>
                     <div class="mb-3">
                       <label for="updateDepartment-${s.getStudentKey()}" class="form-label">학부</label>
