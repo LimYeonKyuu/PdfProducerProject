@@ -34,3 +34,4 @@ build/
 
 ### CUSTOM ###
 application-dev.properties
+pdf.log

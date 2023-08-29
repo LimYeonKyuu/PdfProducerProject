@@ -12,6 +12,7 @@ import com.example.pdfproducerproject.vo.CampVO;
 import com.example.pdfproducerproject.vo.StudentVO;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfContentByte;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
@@ -19,8 +20,8 @@ import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfWriter;
 
 @Component
+@Slf4j
 public class PdfDownView extends AbstractPdfView {
-
     @Override
     protected void buildPdfDocument(
             Map<String, Object> model,
@@ -53,6 +54,7 @@ public class PdfDownView extends AbstractPdfView {
 
         for (StudentVO student:studentList
              ) {
+            log.info("수료증 발급!!! \"켐프: "+campVO.getName()+"\" \"이름: "+student.getName()+"\" \"학번: "+ student.getStudentId()+"\"");
             // 이미지를 컨텐츠에 추가
             contentByte.addImage(backgroundImage);
 
